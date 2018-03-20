@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <bast/noncopyable.h>
+#include <base/noncopyable.h>
 #include <base/CurrentThread.h>
 
 #include <assert.h>
@@ -21,14 +21,14 @@ public:
      : holder_(0)
      {
         int ret = pthread_mutex_init(&mutex_, NULL);
-        assert(ret = 0);
+        assert(ret == 0);
         (void) ret;
      }
 
      ~MutexLock()
      {
         assert(holder_ == 0);
-        int ret = pthread_mutex_destory(&mutex_);
+        int ret = pthread_mutex_destroy(&mutex_);
         assert(ret == 0);
         (void) ret;
      }
@@ -72,11 +72,11 @@ public:
     explicit MutexLockGuard(MutexLock& mutex)
         :mutex_(mutex)
     {
-        mutex.lock();
+        mutex_.lock();
     }
     ~MutexLockGuard()
     {
-        mutex.unlock();
+        mutex_.unlock();
     }
 private:
     MutexLock& mutex_;

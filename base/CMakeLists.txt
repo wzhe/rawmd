@@ -1,4 +1,5 @@
 set(base_SRCS
+    Condition.cpp
     Exception.cpp
     Thread.cpp
     Timestamp.cpp

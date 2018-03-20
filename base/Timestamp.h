@@ -64,14 +64,10 @@ public:
         return fromUnixTime(t, 0);
     }
     static const int kMicroSecondsPerSecond = 1000 * 1000;
-private:
-    int64_t microSecondsSinceEpoch_;
-};
 
-#if 0
 #define TIMESTAMP_PREDICATE(cmp)                             \
-bool operator cmp (Timestamp lhs, Timestamp rhs) const {      
-    return lhs.microSecondsSinceEpoch() cmp rhs.microSecondsSinceEpoch(); \
+bool operator cmp (Timestamp that) const {      \
+    return microSecondsSinceEpoch() cmp that.microSecondsSinceEpoch(); \
   }
 
   TIMESTAMP_PREDICATE(<);
@@ -81,17 +77,11 @@ bool operator cmp (Timestamp lhs, Timestamp rhs) const {
   TIMESTAMP_PREDICATE(==);
   TIMESTAMP_PREDICATE(!=);
 #undef TIMESTAMP_PREDICATE
-#endif
-inline bool operator<(Timestamp lhs, Timestamp rhs)
-{
-    return lhs.microSecondsSinceEpoch() < rhs.microSecondsSinceEpoch();
-}
-#if 0
-inline bool operator==(Timestamp lhs, Timestamp rhs)
-{
-    return lhs.microSecondsSinceEpoch() == rhs.microSecondsSinceEpoch();
-}
-#endif
+
+
+private:
+    int64_t microSecondsSinceEpoch_;
+};
 
 ///
 /// Gets time difference of two timestamps, result in seconds
