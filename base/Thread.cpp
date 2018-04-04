@@ -100,6 +100,8 @@ void Thread::start()
     errno = pthread_create(&pthreadId_, NULL, &startThread, this);
     if (errno != 0 )
     {
+        printf("Failed in pthread_create\n");
+        assert(0);
         // LOG_SYSFATAL << "Failed in pthread_create";
     }
 }

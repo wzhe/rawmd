@@ -19,7 +19,7 @@ public:
 
     void wait();
 
-    void conutDown();
+    void countDown();
 
     int getCount() const;
 

@@ -27,7 +27,7 @@ public:
     int join(); //return pthread_join()
 
 
-    bool started() const { return started_; };
+    bool started() const { return started_; }
   // pthread_t pthreadId() const { return pthreadId_; }
   pid_t tid() const { return tid_; }
   const string& name() const { return name_; }

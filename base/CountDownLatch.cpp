@@ -23,7 +23,7 @@ void CountDownLatch::wait()
     }
 }
 
-void CountDownLatch::coundDown()
+void CountDownLatch::countDown()
 {
     MutexLockGuard lock(mutex_);
     --count_;

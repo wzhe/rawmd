@@ -33,14 +33,14 @@ public:
         (void) ret;
      }
 
-     bool isLockByThisThread()
+     bool isLockedByThisThread()
      {
         return holder_ == CurrentThread::tid();
      }
 
      void assertLocked()
      {
-        assert(isLockByThisThread());
+        assert(isLockedByThisThread());
      }
 
      // internal usage
@@ -81,10 +81,9 @@ public:
 private:
     MutexLock& mutex_;
 };
-
+}
 // Prevent misuse like:
 // MutexLockGuard(mutex_);
 // A tempory object doesn't hold the lock for long!
 #define MutexLockGuard(x) error "Missing guard object name"
 
-}

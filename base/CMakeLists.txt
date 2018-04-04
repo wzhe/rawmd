@@ -1,7 +1,9 @@
 set(base_SRCS
     Condition.cpp
+    CountDownLatch.cpp
     Exception.cpp
     Thread.cpp
+    ThreadPool.cpp
     Timestamp.cpp
   )
 add_library(rawmd_base ${base_SRCS})

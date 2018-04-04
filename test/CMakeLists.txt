@@ -1,5 +1,20 @@
 add_executable(atomicinteger_test AtomicInteger_test.cpp)
 
+add_executable(blockingqueue_test BlockingQueue_test.cpp)
+target_link_libraries(blockingqueue_test rawmd_base)
+
+add_executable(blockingqueue_bench BlockingQueue_bench.cpp)
+target_link_libraries(blockingqueue_bench rawmd_base)
+
+add_executable(boundedblockingqueue_test BoundedBlockingQueue_test.cpp)
+target_link_libraries(boundedblockingqueue_test rawmd_base)
+
+add_executable(countdownlatch_test1 CountDownLatch_test1.cpp)
+target_link_libraries(countdownlatch_test1 rawmd_base)
+
+add_executable(countdownlatch_test2 CountDownLatch_test1.cpp)
+target_link_libraries(countdownlatch_test2 rawmd_base)
+
 add_executable(exception_test Exception_test.cpp)
 target_link_libraries(exception_test rawmd_base)
 
@@ -8,6 +23,9 @@ target_link_libraries(mutex_test rawmd_base)
 
 add_executable(thread_test Thread_test.cpp)
 target_link_libraries(thread_test rawmd_base)
+
+add_executable(threadpool_test ThreadPool_test.cpp)
+target_link_libraries(threadpool_test rawmd_base)
 
 add_executable(timestamp_test Timestamp_test.cpp)
 target_link_libraries(timestamp_test rawmd_base)
