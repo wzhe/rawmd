@@ -24,6 +24,9 @@ target_link_libraries(mutex_test rawmd_base)
 add_executable(thread_test Thread_test.cpp)
 target_link_libraries(thread_test rawmd_base)
 
+add_executable(threadlocal_test ThreadLocal_test.cpp)
+target_link_libraries(threadlocal_test rawmd_base)
+
 add_executable(threadpool_test ThreadPool_test.cpp)
 target_link_libraries(threadpool_test rawmd_base)
 
