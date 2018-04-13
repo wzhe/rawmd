@@ -4,5 +4,6 @@
 2 BOOST_STATIC_ASSERT(sizeof(Timestamp) == sizeof(int64_t)) -> static_assert(sizeof(Timestamp) == sizeof(int64_t),
               "Timestamp should be same size as int64_t");
 3 boost::ptr_vector<T>push_back(new T) -> std::vector<std::unique_ptr<T>>::push_bck(static_cast<std::unique_ptr<T>(new T));
-4 
+4 BOOST_TEST -> Minigtest
+5 boost::scoped_ptr -> std::unique_ptr
 ```

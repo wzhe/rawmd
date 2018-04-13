@@ -112,17 +112,17 @@ private:
 //   else
 //     logWarnStream << "Bad news";
 //
-#define LOG_TRACE if (muduo::Logger::logLevel() <= muduo::Logger::TRACE) \
-  muduo::Logger(__FILE__, __LINE__, muduo::Logger::TRACE, __func__).stream()
-#define LOG_DEBUG if (muduo::Logger::logLevel() <= muduo::Logger::DEBUG) \
-  muduo::Logger(__FILE__, __LINE__, muduo::Logger::DEBUG, __func__).stream()
-#define LOG_INFO if (muduo::Logger::logLevel() <= muduo::Logger::INFO) \
-  muduo::Logger(__FILE__, __LINE__).stream()
-#define LOG_WARN muduo::Logger(__FILE__, __LINE__, muduo::Logger::WARN).stream()
-#define LOG_ERROR muduo::Logger(__FILE__, __LINE__, muduo::Logger::ERROR).stream()
-#define LOG_FATAL muduo::Logger(__FILE__, __LINE__, muduo::Logger::FATAL).stream()
-#define LOG_SYSERR muduo::Logger(__FILE__, __LINE__, false).stream()
-#define LOG_SYSFATAL muduo::Logger(__FILE__, __LINE__, true).stream()
+#define LOG_TRACE if (rawmd::Logger::logLevel() <= rawmd::Logger::TRACE) \
+  rawmd::Logger(__FILE__, __LINE__, rawmd::Logger::TRACE, __func__).stream()
+#define LOG_DEBUG if (rawmd::Logger::logLevel() <= rawmd::Logger::DEBUG) \
+  rawmd::Logger(__FILE__, __LINE__, rawmd::Logger::DEBUG, __func__).stream()
+#define LOG_INFO if (rawmd::Logger::logLevel() <= rawmd::Logger::INFO) \
+  rawmd::Logger(__FILE__, __LINE__).stream()
+#define LOG_WARN rawmd::Logger(__FILE__, __LINE__, rawmd::Logger::WARN).stream()
+#define LOG_ERROR rawmd::Logger(__FILE__, __LINE__, rawmd::Logger::ERROR).stream()
+#define LOG_FATAL rawmd::Logger(__FILE__, __LINE__, rawmd::Logger::FATAL).stream()
+#define LOG_SYSERR rawmd::Logger(__FILE__, __LINE__, false).stream()
+#define LOG_SYSFATAL rawmd::Logger(__FILE__, __LINE__, true).stream()
 
 const char* strerror_tl(int savedErrno);
 
@@ -132,7 +132,7 @@ const char* strerror_tl(int savedErrno);
 // initializer lists.
 
 #define CHECK_NOTNULL(val) \
-  ::muduo::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
+  ::rawmd::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
 
 // A small helper for CHECK_NOTNULL().
 template <typename T>

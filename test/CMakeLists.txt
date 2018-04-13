@@ -18,6 +18,12 @@ target_link_libraries(countdownlatch_test2 rawmd_base)
 add_executable(exception_test Exception_test.cpp)
 target_link_libraries(exception_test rawmd_base)
 
+add_executable(logging_test Logging_test.cpp)
+target_link_libraries(logging_test rawmd_base)
+
+add_executable(logstream_bench LogStream_bench.cpp)
+target_link_libraries(logstream_bench rawmd_base)
+
 add_executable(logstream_test LogStream_test.cpp)
 target_link_libraries(logstream_test rawmd_base)
 

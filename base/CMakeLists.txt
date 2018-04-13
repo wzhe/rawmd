@@ -3,8 +3,11 @@ set(base_SRCS
     CountDownLatch.cpp
     Date.cpp
     Exception.cpp
+    FileUtil.cpp
+    LogFile.cpp
     Logging.cpp
     LogStream.cpp
+    ProcessInfo.cpp
     Thread.cpp
     ThreadPool.cpp
     Timestamp.cpp
