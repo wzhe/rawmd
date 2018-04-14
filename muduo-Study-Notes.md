@@ -1,4 +1,4 @@
-# muduo库学习笔记
+# muduo base库学习笔记
 
 ## 前言
 
@@ -7,14 +7,12 @@
 > 此文在观看《大并发服务器开发》视频时所做。
 >
 > 因此本文所讲基于muduo库0.9.1-beta版本,需要依赖cmake及boost.
->
+> (rawmd不依赖boost,依赖c++11)
 > sudo apt-get install cmake libboost-dev libboost-test-dev .
 >
 > 更新时间:<2018-03-12>
 >
 > 原创时间: <2018-03-12>
-
-### epoll/poll/select
 
 ### 面向对象编程与基于对象编程
 
