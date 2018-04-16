@@ -84,7 +84,7 @@ epoll 有两种触发模式
 
 ####epoll/poll/select比较
 
-|            | 原理                                     |
+|            | 原理                                       |
 | ---------- | ---------------------------------------- |
 | **select** | select本质上是通过设置或者检查存放fd标志位的数据结构来进行下一步处理。这样所带来的缺点是：\n (1) 单个进程可监视的fd数量被限制(2) 需要维护一个用来存放大量fd的数据结构，这样会使得用户空间和内核空间在传递该结构时复制开销大 (3) 对socket进行扫描时是线性扫描 |
 | **poll**   | poll本质上和select没有区别，它将用户传入的数组拷贝到内核空间，然后查询每个fd对应的设备状态，如果设备就绪则在设备等待队列中加入一项并继续遍历，如果遍历完所有fd后没有发现就绪设备，则挂起当前进程，直到设备就绪或者主动超时，被唤醒后它又要再次遍历fd。这个过程经历了多次无谓的遍历。 |
@@ -114,3 +114,18 @@ epoll 有两种触发模式
 | **poll**   | 因为每次调用时都会对连接进行线性遍历，所以随着FD的增加会造成遍历速度慢的“线性下降性能问题”。 |
 | **epoll**  | 因为epoll内核中实现是根据每个fd上的callback函数来实现的，只有活跃的socket才会主动调用callback，所以在活跃socket较少的情况下，使用epoll没有前面两者的线性下降的性能问题，但是所有socket都很活跃的情况下，可能会有性能问题。 |
 
+
+
+
+
+## muduo net库
+
+### EventLoop
+
+1. one loop per thread 每个线程最多只能有一个EventLoop对象。EventLoop对象构造时会检查当前线程是否已经创建了其他EventLoop对象，如果已经创建，则终止程序(LOG_FATAL)
+2. EventLoop 构造函数会记住本对象所属线程(threadId_)。
+3. 创建EventLoop对象的线程称为IO线程，其功能是运行事件循环(EventLoop::loop)
+
+### Channel
+1. Channel是selectable IO channel, 负责注册与响应IO事件，它不拥有file descriptor.
+2. Channel是Acceptor、 Connector、 EventLoop、TimerQueue、TcpConnection的成员，生命期由后者控制。

@@ -1,3 +1,5 @@
+############ test for base library ##########################################
+
 add_executable(atomicinteger_test AtomicInteger_test.cpp)
 
 add_executable(blockingqueue_test BlockingQueue_test.cpp)
@@ -43,3 +45,14 @@ target_link_libraries(threadpool_test rawmd_base)
 
 add_executable(timestamp_test Timestamp_test.cpp)
 target_link_libraries(timestamp_test rawmd_base)
+
+############ test for net library ##########################################
+
+add_executable(reactor_test01 Reactor_test01.cpp)
+target_link_libraries(reactor_test01 rawmd_net)
+
+add_executable(reactor_test02 Reactor_test02.cpp)
+target_link_libraries(reactor_test02 rawmd_net)
+
+add_executable(reactor_test03 Reactor_test03.cpp)
+target_link_libraries(reactor_test03 rawmd_net)
