@@ -5,7 +5,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <signal.h>
-#include <fcntl.h>
 #include <sys/wait.h>
 #include <sys/epoll.h>
 
