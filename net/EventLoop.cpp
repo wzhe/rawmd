@@ -69,7 +69,7 @@ void EventLoop::loop()
       //++iteration_;
       if (Logger::logLevel() <= Logger::TRACE)
       {
-        printActiveChannels();
+          printActiveChannels();
       }
       // TODO sort channel by priority
       eventHandling_ = true;

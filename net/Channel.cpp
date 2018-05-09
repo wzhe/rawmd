@@ -74,29 +74,30 @@ void Channel::handleEventWithGuard(Timestamp receiveTime)
     eventHandling_ = true;
     if ((revents_ & POLLHUP) && !(revents_ & POLLIN))
     {
-    if (logHup_)
-    {
-      LOG_WARN << "Channel::handle_event() POLLHUP";
-    }
-    if (closeCallback_) closeCallback_();
+        if (logHup_)
+        {
+          LOG_WARN << "Channel::handle_event() POLLHUP";
+        }
+
+        if (closeCallback_) closeCallback_();
     }
 
     if (revents_ & POLLNVAL)
     {
-    LOG_WARN << "Channel::handle_event() POLLNVAL";
+        LOG_WARN << "Channel::handle_event() POLLNVAL";
     }
 
     if (revents_ & (POLLERR | POLLNVAL))
     {
-    if (errorCallback_) errorCallback_();
+         if (errorCallback_) errorCallback_();
     }
     if (revents_ & (POLLIN | POLLPRI | POLLRDHUP))
     {
-    if (readCallback_) readCallback_(receiveTime);
+        if (readCallback_) readCallback_(receiveTime);
     }
     if (revents_ & POLLOUT)
     {
-    if (writeCallback_) writeCallback_();
+        if (writeCallback_) writeCallback_();
     }
     eventHandling_ = false;
 }
@@ -106,19 +107,19 @@ string Channel::reventsToString() const
     std::ostringstream oss;
     oss << fd_ << ": ";
     if (revents_ & POLLIN)
-    oss << "IN ";
+        oss << "IN ";
     if (revents_ & POLLPRI)
-    oss << "PRI ";
+        oss << "PRI ";
     if (revents_ & POLLOUT)
-    oss << "OUT ";
+        oss << "OUT ";
     if (revents_ & POLLHUP)
-    oss << "HUP ";
+        oss << "HUP ";
     if (revents_ & POLLRDHUP)
-    oss << "RDHUP ";
+        oss << "RDHUP ";
     if (revents_ & POLLERR)
-    oss << "ERR ";
+        oss << "ERR ";
     if (revents_ & POLLNVAL)
-    oss << "NVAL ";
+        oss << "NVAL ";
 
     return oss.str().c_str();
 }

@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include <base/Types.h>
 #include <vector>
 #include <iostream>
 
@@ -136,3 +135,12 @@ void TESTCASE_NAME(testcase_name)::Run()
         std::cout << RED << "Expect:" << m << std::endl; \
         std::cout << RED << "Actual:" << n << std::endl; \
     }
+
+#define TEST_ASSERT(m) \
+    if (!(m) \
+    { \
+        MiniUnitTest::GetInstance()->CurrentTestCase->nTestResult = 0; \
+        std::cout << RED << "Failed" << std::endl; \
+        std::cout << RED << "TEST_ASSERT:" << m << std::endl; \
+    }
+
