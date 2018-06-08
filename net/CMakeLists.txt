@@ -5,6 +5,8 @@ set(net_SRCS
     poller/DefaultPoller.cpp
     poller/EPollPoller.cpp
     poller/PollPoller.cpp
+    Timer.cpp
+    TimerQueue.cpp
 )
 add_library(rawmd_net ${net_SRCS})
 target_link_libraries(rawmd_net rawmd_base)
