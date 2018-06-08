@@ -2,10 +2,13 @@ set(net_SRCS
     Channel.cpp
     EventLoop.cpp
     EventLoopThread.cpp
+    InetAddress.cpp
     Poller.cpp
     poller/DefaultPoller.cpp
     poller/EPollPoller.cpp
     poller/PollPoller.cpp
+    Socket.cpp
+    SocketsOps.cpp
     Timer.cpp
     TimerQueue.cpp
 )
