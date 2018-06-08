@@ -1,6 +1,7 @@
 set(net_SRCS
     Channel.cpp
     EventLoop.cpp
+    EventLoopThread.cpp
     Poller.cpp
     poller/DefaultPoller.cpp
     poller/EPollPoller.cpp
