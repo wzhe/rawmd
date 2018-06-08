@@ -12,7 +12,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>  // snprintf
-#include <strings.h>  // bzero
+#include <strings.h>  // memset
 #include <sys/socket.h>
 #include <unistd.h>
 
@@ -220,7 +220,7 @@ int sockets::getSocketError(int sockfd)
 struct sockaddr_in sockets::getLocalAddr(int sockfd)
 {
     struct sockaddr_in localaddr;
-    bzero(&localaddr, sizeof localaddr);
+    memset(&localaddr, 0x00, sizeof localaddr);
     socklen_t addrlen = sizeof(localaddr);
     if (::getsockname(sockfd, sockaddr_cast(&localaddr), &addrlen) < 0)
     {
