@@ -19,7 +19,7 @@ template <typename T>
 class circular_buffer
 {
 public:
-  explicit circular_buffer(size_t capacity);
+  explicit circular_buffer(size_t capacitysize);
   circular_buffer(const circular_buffer<T> &rhs);
   circular_buffer(circular_buffer<T>&& rhs);
   ~circular_buffer() { if (buffer_) delete[] buffer_; }
@@ -63,13 +63,13 @@ circular_buffer<T>::circular_buffer()
 }
 
 template<typename T>
-circular_buffer<T>::circular_buffer(size_t capacity)
+circular_buffer<T>::circular_buffer(size_t capacitysize)
   : circular_buffer()
 {
-  if (capacity < 1) throw std::length_error("Invalid capacity");
+  if (capacitysize < 1) throw std::length_error("Invalid capacity");
 
-  buffer_ = new T[capacity];
-  capacity_ = capacity;
+  buffer_ = new T[capacitysize];
+  capacity_ = capacitysize;
 }
 
 template<typename T>
