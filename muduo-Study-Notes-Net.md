@@ -129,3 +129,4 @@ epoll 有两种触发模式
 ### Channel
 1. Channel是selectable IO channel, 负责注册与响应IO事件，它不拥有file descriptor.
 2. Channel是Acceptor、 Connector、 EventLoop、TimerQueue、TcpConnection的成员，生命期由后者控制。
+

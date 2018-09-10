@@ -56,3 +56,10 @@ target_link_libraries(reactor_test02 rawmd_net)
 
 add_executable(reactor_test03 Reactor_test03.cpp)
 target_link_libraries(reactor_test03 rawmd_net)
+
+############ test for fun ##########################################
+add_executable(NoLockErrorTest NoLockErrorTest.cpp)
+target_link_libraries(NoLockErrorTest rawmd_base)
+
+add_executable(XunLeiProblem XunLeiProblem.cpp)
+target_link_libraries(XunLeiProblem rawmd_base)
