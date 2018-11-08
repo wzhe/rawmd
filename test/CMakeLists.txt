@@ -48,6 +48,12 @@ target_link_libraries(timestamp_test rawmd_base)
 
 ############ test for net library ##########################################
 
+add_executable(acceptor_test Acceptor_test.cpp)
+target_link_libraries(acceptor_test rawmd_net)
+
+add_executable(acceptor_test02 Acceptor_test02.cpp)
+target_link_libraries(acceptor_test02 rawmd_net)
+
 add_executable(reactor_test01 Reactor_test01.cpp)
 target_link_libraries(reactor_test01 rawmd_net)
 
