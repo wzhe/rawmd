@@ -15,7 +15,7 @@ using std::placeholders::_1;
 void newConnection(int sockfd, const net::InetAddress& peerAddr)
 {
 	printf("newConnection(): accepted a new connection from %s\n",
-			peerAddr.toHostPort().c_str());
+			peerAddr.toIpPort().c_str());
 	::write(sockfd, "How are you?\n", 13);
 	::close(sockfd);
 }

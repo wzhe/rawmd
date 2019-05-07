@@ -14,6 +14,7 @@
 #include <stdio.h>  // snprintf
 #include <strings.h>  // memset
 #include <sys/socket.h>
+#include <sys/uio.h>
 #include <unistd.h>
 
 using namespace rawmd;

@@ -49,6 +49,37 @@ private:
     double x_;
 };
 
+class Boo
+{
+public:
+    explicit Boo(std::string threadName)
+        : loop_(true),
+          thread_(std::bind(&Boo::threadProc, this), threadName)
+    {}
+
+    void start()
+    {
+        thread_.start();
+    }
+
+    void stop()
+    {
+        loop_ = false;
+    }
+
+    void threadProc()
+    {
+        while (loop_) {
+             printf("thread_.tid=%d\n", thread_.tid());
+            timespec t = { 5, 0 };
+            nanosleep(&t, NULL);
+        }
+    }
+private:
+    bool   loop_;
+    rawmd::Thread thread_;
+};
+
 int main()
 {
     printf("pid=%d, tid=%d\n", ::getpid(), rawmd::CurrentThread::tid());
@@ -81,7 +112,6 @@ int main()
     }
 
     mysleep(2);
-
     {
         rawmd::Thread t6(threadFunc3);
         t6.start();
@@ -90,6 +120,10 @@ int main()
     }
 
     sleep(2);
+    Boo b("hwqe");
+    b.start();
+
     printf("number of created threads %d\n", rawmd::Thread::numCreated());
+
 
 }
